@@ -1,0 +1,6 @@
+*.pyc
+*.log
+*.xlsx
+*.jpg
+/.pytest_cache
+/__pycache__
