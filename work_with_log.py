@@ -53,5 +53,8 @@ def split_log_file_by_days(filename='cormoceh.log'):
 
 
 if __name__ == '__main__':
-    date_indexes, lines = split_log_file_by_days()
-    create_day_log_file(date_indexes, lines)
+    # date_indexes, lines = split_log_file_by_days()
+    # create_day_log_file(date_indexes, lines)
+
+    with open('17-05-2022.log', 'w', encoding='utf-8') as test_file:
+        test_file.write('hui')
