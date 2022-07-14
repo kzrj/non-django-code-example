@@ -77,17 +77,5 @@ class BatchSession(SliceIndex):
 
 
 if __name__ == '__main__':
-    print('Start')
     daily_session = DailySession()
     daily_session.parse_daily_log()
-
-    # print(daily_session, daily_session.batches())
-    for batch_session in daily_session.batches():
-        print(batch_session.date, batch_session.slice)
-        batch_session.handle_lines(lines=daily_session.file_lines)
-        print('init_count_batches = ',  batch_session.init_count_batches)
-        print(batch_session.receipt_name)
-        print(len(batch_session.fact_batches_list))
-        print('=======================================')
-
-    print(len(daily_session.batch_sessions), len(daily_session.batches()))
