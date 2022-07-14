@@ -1,9 +1,10 @@
 *.pyc
-/logs
 *.xlsx
 *.jpg
 */.pytest_cache
 */__pycache__
-/data
-/build
-/dist
+
+logs/
+data/
+build/
+dist/
