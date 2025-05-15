@@ -1,4 +1,24 @@
 # -*- coding: utf-8 -*-
+import os
+import sys
+import ctypes
+
+# Автоматически определяем путь к папке с программой
+def fix_win7_dll_issue():
+    if sys.platform == "win32":
+        # Путь к папке, где лежит exe или скрипт
+        base_dir = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+        # Добавляем эту папку в начало PATH
+        os.environ["PATH"] = base_dir + os.pathsep + os.environ["PATH"]
+
+        for dll in ["vcruntime140.dll", "msvcp140.dll"]:
+            try:
+                ctypes.CDLL(os.path.join(base_dir, dll))
+            except Exception as e:
+                print(f"Ошибка загрузки {dll}: {e}")
+
+fix_win7_dll_issue()  # Вызываем сразу
+
 import datetime
 import dearpygui.dearpygui as dpg
 
